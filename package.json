@@ -1,0 +1,27 @@
+{
+  "name": "pt-hksi-website",
+  "version": "1.0.0",
+  "description": "Website Resmi Perusahaan PT HASTA KARYA SEJAHTERA INDONESIA (HKSI)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.x"
+  },
+  "keywords": [
+    "hksi",
+    "cilegon",
+    "material-konstruksi",
+    "laboratorium-beton",
+    "survei-geospasial"
+  ],
+  "author": "PT HASTA KARYA SEJAHTERA INDONESIA",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "multer": "^2.5.0"
+  }
+}

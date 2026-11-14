@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio & Fasilitas Layanan | PT Hasta Karya Sejahtera Indonesia (HKSI)</title>
+  <meta name="description" content="Jelajahi kapabilitas proyek dan fasilitas operasional PT HKSI dalam penyediaan supply material dermaga & jalan tol, uji laboratorium mutu industri, dan survei topografi batimetri.">
+  <link rel="icon" type="image/png" href="/images/logo-hksi-transparent.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  {{header}}
+
+  <!-- Page Header -->
+  <section class="section section-dark" style="padding:60px 0;background:linear-gradient(135deg, #070B14 0%, #0F172A 50%, #0753AE 100%);">
+    <div class="container text-center">
+      <span class="badge-tag badge-gold" style="margin-bottom:16px;">KAPABILITAS & FASILITAS</span>
+      <h1 class="section-title heading-gold" style="font-size:clamp(2.4rem, 4vw, 3.5rem);margin-bottom:14px;">Portofolio & Fasilitas Layanan</h1>
+      <p class="section-desc" style="max-width:720px;margin:0 auto;color:var(--slate-300);">
+        Dokumentasi kapabilitas pelaksanaan pekerjaan di bidang rantai pasok material infrastruktur, laboratorium mutu fasilitas industri, serta survei pemetaan skala modern.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Semua Layanan ({{total_projects}})</button>
+        <button class="filter-btn" data-filter="Supply Material">Supply Material</button>
+        <button class="filter-btn" data-filter="Jasa Laboratorium">Jasa Laboratorium & Uji Mutu</button>
+        <button class="filter-btn" data-filter="Jasa Pengukuran">Jasa Pengukuran & Survei</button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="card-grid" id="projectsContainer">
+        {{#projects}}
+        <div class="project-card project-card-item" data-category="{{category}}">
+          <div class="project-img-wrapper">
+            <img src="{{image}}" alt="{{title}}" class="project-img">
+            <span class="project-category-badge">{{category}}</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-meta-item">📍 {{location}}</span>
+              <span class="project-meta-item">📅 {{year}}</span>
+            </div>
+            <h3 class="project-title">{{title}}</h3>
+            <p class="project-desc">{{description}}</p>
+            <div style="border-top:1px solid var(--slate-200);padding-top:14px;margin-top:auto;display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <small class="text-muted" style="display:block;font-size:0.75rem;text-transform:uppercase;">Lingkup / Sasaran:</small>
+                <strong style="font-size:0.9rem;color:var(--slate-800);">{{client}}</strong>
+              </div>
+              <span class="badge-tag badge-gold" style="font-size:0.75rem;">Siap Operasi</span>
+            </div>
+          </div>
+        </div>
+        {{/projects}}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fasilitas & Alat Modern PT HKSI -->
+  <section class="section section-slate">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Dukungan Teknologi</span>
+        <h2 class="section-title">Fasilitas, Alat, & <span class="heading-gold">Armada Modern</span></h2>
+        <p class="section-desc">
+          Kecepatan dan presisi layanan kami didukung oleh armada logistik terintegrasi serta instrumen laboratorium dan geospasial generasi terkini.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+        <!-- Card 1 -->
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:30px;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);">
+          <div style="width:52px;height:52px;border-radius:12px;background:rgba(7,83,174,0.1);display:flex;align-items:center;justify-content:center;color:var(--blue-700);margin-bottom:18px;">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h4 style="font-size:1.2rem;font-weight:700;color:var(--slate-900);margin-bottom:8px;">Armada Pengiriman Laut (Tongkang)</h4>
+          <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">
+            Kapal tongkang (barge) berkapasitas 2.000 hingga 7.500 DWT dan tugboat siap melayani distribusi agregat dan pasir antarpulau via dermaga Cilegon.
+          </p>
+          <span class="badge-tag" style="background:#eff6ff;color:#1d4ed8;">Kapasitas Muat Masif</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:30px;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);">
+          <div style="width:52px;height:52px;border-radius:12px;background:rgba(245,190,56,0.15);display:flex;align-items:center;justify-content:center;color:#B48811;margin-bottom:18px;">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+          </div>
+          <h4 style="font-size:1.2rem;font-weight:700;color:var(--slate-900);margin-bottom:8px;">Armada Dump Truck Darat</h4>
+          <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">
+            Unit Dump Truck Tronton (28-32 Ton) dan Truk Indeks (24 m3) untuk kontinuitas pasokan material proyek jalan tol dan kawasan industri.
+          </p>
+          <span class="badge-tag badge-gold">Distribusi Siaga 24 Jam</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:30px;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);">
+          <div style="width:52px;height:52px;border-radius:12px;background:rgba(7,83,174,0.1);display:flex;align-items:center;justify-content:center;color:var(--blue-700);margin-bottom:18px;">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+          <h4 style="font-size:1.2rem;font-weight:700;color:var(--slate-900);margin-bottom:8px;">Mesin Uji Tekan Beton & Sondir</h4>
+          <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">
+            Compression Machine digital 2000 kN, Rig Sondir hidrolik 2.5 & 5 Ton, mesin core drill, sand cone, dan oven laboratorium tanah terkalibrasi KAN.
+          </p>
+          <span class="badge-tag" style="background:#eff6ff;color:#1d4ed8;">Kalibrasi KAN Terverifikasi</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:30px;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);">
+          <div style="width:52px;height:52px;border-radius:12px;background:rgba(245,190,56,0.15);display:flex;align-items:center;justify-content:center;color:#B48811;margin-bottom:18px;">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+          </div>
+          <h4 style="font-size:1.2rem;font-weight:700;color:var(--slate-900);margin-bottom:8px;">Total Station, GNSS RTK, & Echo Sounder</h4>
+          <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">
+            Total Station akurasi 1 detik, GPS Geodetik Dual-Frequency multi-GNSS, Drone pemetaan LiDAR udara, dan digital echo sounder perairan pelabuhan.
+          </p>
+          <span class="badge-tag badge-gold">Presisi Milimeter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section section-dark" style="text-align:center;">
+    <div class="container">
+      <h2 style="font-size:2.4rem;font-weight:800;margin-bottom:16px;">
+        Ingin Mewujudkan Proyek dengan <span class="heading-gold">Hasil Terbaik</span>?
+      </h2>
+      <p style="color:var(--slate-300);max-width:650px;margin:0 auto 30px;font-size:1.05rem;">
+        Tim komersial dan insinyur kami siap menganalisis kebutuhan volume material, spesifikasi uji laboratorium, dan lingkup survei proyek Anda.
+      </p>
+      <a href="/kontak#form-penawaran" class="btn btn-gold">
+        <span>Hubungi Kami Untuk Konsultasi Proyek</span>
+      </a>
+    </div>
+  </section>
+
+  {{footer}}
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

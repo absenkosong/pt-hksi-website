@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | PT Hasta Karya Sejahtera Indonesia (HKSI)</title>
+  <link rel="icon" type="image/png" href="/images/logo-hksi-transparent.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      background: radial-gradient(circle at top right, #0F172A 0%, #070B14 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .login-box {
+      max-width: 440px;
+      width: 100%;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(245, 190, 56, 0.35);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-xl);
+      padding: 44px 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <a href="/">
+      <img src="/images/logo-hksi-transparent.png" alt="PT HKSI Logo" style="height:70px;margin:0 auto 16px;">
+    </a>
+    <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:6px;">Portal Manajemen Web</h2>
+    <p style="font-size:0.88rem;color:var(--slate-400);margin-bottom:28px;">PT Hasta Karya Sejahtera Indonesia</p>
+
+    <div id="loginAlert" style="display:none;background:#7f1d1d;border:1px solid #ef4444;color:#fecaca;padding:12px;border-radius:8px;font-size:0.85rem;margin-bottom:20px;text-align:left;">
+      Username atau password tidak valid!
+    </div>
+
+    <form id="adminLoginForm" style="text-align:left;">
+      <div class="form-group">
+        <label class="form-label" style="color:var(--slate-200);">Username Admin</label>
+        <input type="text" id="username" class="form-control" style="background:#0F172A;border-color:rgba(255,255,255,0.2);color:#fff;" placeholder="Masukkan username" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" style="color:var(--slate-200);">Password</label>
+        <input type="password" id="password" class="form-control" style="background:#0F172A;border-color:rgba(255,255,255,0.2);color:#fff;" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn btn-gold" style="width:100%;margin-top:12px;padding:13px;">
+        <span>Masuk ke Panel Admin</span>
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </button>
+    </form>
+
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;margin-top:24px;font-size:0.8rem;color:var(--slate-400);">
+      <span style="color:var(--gold-400);font-weight:700;">Kredensial Default Sistem:</span><br>
+      Username: <code style="color:#fff;">admin</code> | Password: <code style="color:#fff;">admin123</code>
+    </div>
+
+    <div style="margin-top:24px;">
+      <a href="/" style="font-size:0.85rem;color:var(--slate-400);text-decoration:none;">
+        ← Kembali ke Website Utama
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const alertBox = document.getElementById('loginAlert');
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          window.location.href = '/admin';
+        } else {
+          alertBox.textContent = data.error || 'Username atau password salah';
+          alertBox.style.display = 'block';
+        }
+      } catch (err) {
+        alertBox.textContent = 'Gagal menghubungi server';
+        alertBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
